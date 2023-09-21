@@ -3,6 +3,8 @@ import { getDate, getTime } from '@/functions/date';
 import { INewsItem } from '@/types/api-types';
 import Link from 'next/link';
 import './style.scss';
+import { Metadata } from 'next';
+import { title } from 'process';
 
 interface IDetailsProps {
 	params: {
