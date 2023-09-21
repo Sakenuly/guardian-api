@@ -1,0 +1,11 @@
+.news-grid {
+	display: grid;
+	column-gap: 10px;
+	row-gap: 25px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	&__item {
+		align-items: center;
+		justify-content: center;
+		display: flex;
+	}
+}

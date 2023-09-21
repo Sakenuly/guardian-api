@@ -1,0 +1,27 @@
+.details {
+	// .details__container
+
+	&__container {
+	}
+
+	// .details__info
+
+	&__info {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	// .details__link
+
+	&__link {
+	}
+
+	// .details__time
+
+	&__time {
+		color: #808080;
+	}
+}
+.link {
+}

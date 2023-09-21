@@ -1,0 +1,10 @@
+.header {
+	// .header__container
+	@media (max-width: 767.98px) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__container {
+	}
+}

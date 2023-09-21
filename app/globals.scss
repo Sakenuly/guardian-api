@@ -1,0 +1,91 @@
+/* ОБНУЛЕНИЕ СТИЛЕЙ */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	border: none;
+	box-sizing: border-box;
+}
+li {
+	list-style: none;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+img {
+	vertical-align: top;
+}
+html,
+body {
+	height: 100%;
+}
+html {
+	font-size: 16px; /* по умолчанию */
+}
+
+body {
+	line-height: 1;
+	font-family: 'Helvetica Neue';
+	color: #000000;
+	background: #ffffff;
+}
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+[class*='__container'] {
+	max-width: 1242px;
+	margin: 0px auto;
+	padding: 0 12px;
+}
+
+button {
+	background-color: transparent;
+	cursor: pointer;
+}
+
+// $main-color: ;
+@media (max-width: 1140px) {
+	[class*='__container'] {
+		max-width: 970px;
+	}
+}
+/* №2 */
+@media (max-width: 991.98px) {
+	[class*='__container'] {
+		max-width: 750px;
+	}
+}
+/* №3 */
+@media (max-width: 767.98px) {
+	[class*='__container'] {
+		max-width: 500px;
+	}
+}
+.page {
+	flex: 1 1 auto;
+	position: relative;
+}
+
+.link {
+	color: black;
+	&:hover {
+		text-decoration: underline;
+	}
+}

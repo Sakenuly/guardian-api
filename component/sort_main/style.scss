@@ -1,0 +1,7 @@
+.sort-main {
+	display: flex;
+	justify-content: center;
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
+}
