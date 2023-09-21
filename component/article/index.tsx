@@ -1,6 +1,11 @@
+import { Body } from '@/types/api-types';
 import './style.scss';
 
-function Article({ article }: any) {
+interface IArticleProps {
+	article:Body
+}
+
+function Article({ article }:IArticleProps ) {
 	return (
 		<div className='article'>
 			<div dangerouslySetInnerHTML={{ __html: article.bodyHtml }} />

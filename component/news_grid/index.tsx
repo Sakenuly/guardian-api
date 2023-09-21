@@ -41,7 +41,7 @@ function NewsGrid() {
 		};
 	}, [autoScrollPage, autoScrollSelector.isActive, dispatch]);
 
-	if (data) console.log(data);
+
 	return (
 		<div className='news-grid'>
 			{data &&

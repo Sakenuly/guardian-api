@@ -29,7 +29,6 @@ export default async function Details({ params: { id } }: IDetailsProps) {
 	const date = data.response.content.webPublicationDate;
 	const publicationDate = getDate(date);
 	const publicationTime = getTime(date);
-	console.log(data);
 
 	return (
 		<div className='details'>
@@ -55,22 +54,3 @@ export default async function Details({ params: { id } }: IDetailsProps) {
 		</div>
 	);
 }
-
-// export default function Details({ params: { id } }: IDetailsProps) {
-// 	const { data } = useDetailsQuery(id.join('/'));
-// 	console.log(data);
-
-// 	return (
-// 		<div className='details'>
-// 			<div className='details__container'>
-// 				{data && data.response.content.blocks.main && (
-// 					<Article article={data.response.content.blocks.main} />
-// 				)}
-// 				{data &&
-// 					data.response.content.blocks.body.map((item) => (
-// 						<Article key={item.id} article={item} />
-// 					))}
-// 			</div>
-// 		</div>
-// 	);
-// }

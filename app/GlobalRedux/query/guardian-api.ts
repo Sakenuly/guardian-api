@@ -43,7 +43,6 @@ const guardianApi = createApi({
 				return endpointName;
 			},
 			merge: (currentCache, newItems, data) => {
-				console.log(data);
 				if (data.arg.autoScroll) {
 					currentCache.response.results.push(...newItems.response.results);
 				} else {
