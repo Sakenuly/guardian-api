@@ -9,7 +9,9 @@ import { IResult } from '@/types/api-types';
 import * as cheerio from 'cheerio';
 import { log } from 'console';
 import Link from 'next/link';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { getDate, getTime } from '@/functions/date';
+import './style.scss';
 
 interface INewsGridItemProps {
 	arrayItem: IResult;
@@ -23,8 +25,9 @@ function NewsGridItem({ arrayItem }: INewsGridItemProps) {
 	const publicationTime = getTime(arrayItem.webPublicationDate);
 	return (
 		<Card
+			className='news-grid-item'
 			sx={{
-				maxWidth: 345,
+				width: '100%',
 				height: '100%',
 				display: 'flex',
 				flexDirection: 'column',
@@ -32,20 +35,28 @@ function NewsGridItem({ arrayItem }: INewsGridItemProps) {
 		>
 			<CardMedia
 				sx={{ height: 140 }}
-				image={arrayItem.fields ? arrayItem.fields.thumbnail : noImage}
+				image={arrayItem.fields.thumbnail ? arrayItem.fields.thumbnail : noImage}
 				title='green iguana'
+				className='news-grid-item__image'
 			/>
 			<CardContent sx={{ flex: '1 1 auto' }}>
 				<Typography gutterBottom component='p'>
 					{publicationDate} {publicationTime}
 				</Typography>
-				<Typography gutterBottom variant='h5' component='div'>
+				<Typography
+					className='news-grid-item__text'
+					gutterBottom
+					variant='h5'
+					component='div'
+				>
 					{arrayItem.webTitle}
 				</Typography>
 			</CardContent>
-			<CardActions>
+			<CardActions sx={{ display: 'flex', justifyContent: 'flex-end' }}>
 				<Link href={`details/${arrayItem.id}`}>
-					<Button size='small'>Show More</Button>
+					<Button sx={{ color: 'black' }} size='small'>
+						Details <ArrowForwardIcon />
+					</Button>
 				</Link>
 			</CardActions>
 		</Card>

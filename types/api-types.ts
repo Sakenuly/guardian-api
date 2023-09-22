@@ -29,7 +29,33 @@ export interface IResult {
 	pillarName: PillarName;
 }
 export interface IFields {
+	headline: string;
+	standfirst: string;
+	trailText: string;
+	byline: string;
+	main: string;
+	body: string;
+	wordcount: string;
+	firstPublicationDate: Date;
+	isInappropriateForSponsorship: string;
+	isPremoderated: string;
+	lastModified: Date;
+	liveBloggingNow: string;
+	productionOffice: string;
+	publication: string;
+	shortUrl: string;
+	shouldHideAdverts: string;
+	showInRelatedContent: string;
 	thumbnail: string;
+	legallySensitive: string;
+	lang: string;
+	isLive: string;
+	bodyText: string;
+	charCount: string;
+	shouldHideReaderRevenue: string;
+	showAffiliateLinks: string;
+	bylineHtml: string;
+	showTableOfContents: string;
 }
 
 export enum PillarID {
@@ -73,6 +99,7 @@ export interface Content {
 	isHosted: boolean;
 	pillarId: string;
 	pillarName: string;
+	fields: IFields;
 }
 
 export interface Blocks {

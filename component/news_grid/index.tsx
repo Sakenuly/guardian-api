@@ -1,6 +1,7 @@
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import './style.scss';
+import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
 import { NewsGridItem } from '../news_grid_item';
 import { useSearchQuery } from '@/app/GlobalRedux/query/guardian-api';
@@ -41,12 +42,11 @@ function NewsGrid() {
 		};
 	}, [autoScrollPage, autoScrollSelector.isActive, dispatch]);
 
-
 	return (
 		<div className='news-grid'>
 			{data &&
 				data.response.results.map((item) => (
-					<div className='news-grid__item' key={item.id}>
+					<div className='news-grid__item' key={uuidv4()}>
 						<NewsGridItem arrayItem={item} />
 					</div>
 				))}

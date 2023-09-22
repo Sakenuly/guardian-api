@@ -1,70 +1,63 @@
+/* ArticleComponent.css */
+
 .article {
-	font-family: Arial, sans-serif;
-	// padding: 20px;
-	// border: 1px solid #ccc;
-	// background-color: #f8f8f8;
-	border-radius: 5px;
-	&:not(:last-child) {
-		margin-bottom: 20px;
-	}
+	border: 1px solid #ccc;
+	padding: 40px;
+	// margin: 16px;
+	background-color: #f8f8f8;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-	p {
-		font-size: 16px;
-		line-height: 1.5;
-		margin-bottom: 20px;
-	}
+	display: flex;
+	flex-direction: column;
 
-	h1,
-	h2,
-	h3 {
+	&__headline {
+		font-size: 24px;
 		font-weight: bold;
-		color: #333;
-		margin-top: 20px;
+		&:not(:last-child) {
+			margin-bottom: 30px;
+		}
+	}
+	&__info {
+		display: flex;
+		justify-content: space-between;
+		&:not(:last-child) {
+			margin-bottom: 45px;
+		}
+	}
+	&__link {
+		text-decoration: none;
+		color: #0077cc;
+		margin-right: 16px;
+	}
+	&__time {
+		color: #555;
+	}
+	&__content {
+		display: flex;
+		flex-wrap: wrap;
+		@media (max-width: 768px) {
+			flex-direction: column;
+		}
 	}
 
-	strong {
-		font-weight: bold;
-		color: #007bff;
-	}
-
-	img {
+	&__image {
+		float: left;
+		margin: 0px 40px 40px 0px;
 		max-width: 100%;
-		height: auto;
-		margin: 20px 0;
-		border-radius: 5px;
-	}
-
-	.element-image__caption {
-		font-style: italic;
-		font-size: 14px;
-		color: #777;
-	}
-
-	.element-image__credit {
-		font-size: 12px;
-		color: #888;
-	}
-
-	ul {
-		list-style-type: disc;
-		margin-left: 20px;
-	}
-
-	li {
-		margin-bottom: 10px;
-	}
-
-	@media (max-width: 768px) {
-		p {
-			font-size: 14px;
+		border-radius: 10px;
+		@media (max-width: 768px) {
+			margin: 10px;
 		}
-
-		h1 {
-			font-size: 24px;
-		}
-
-		img {
-			margin: 10px 0;
+	}
+	&__body-text {
+		flex: 1 1 50%;
+		flex-wrap: wrap;
+		font-size: 18px;
+		line-height: 1.5;
+		color: #333;
+		&:first-letter {
+			font-weight: 900;
 		}
 	}
 }

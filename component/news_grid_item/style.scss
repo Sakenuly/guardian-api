@@ -1,0 +1,11 @@
+.news-grid-item {
+	&__text {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 100%;
+	}
+	&__image {
+		min-height: 250px;
+	}
+}

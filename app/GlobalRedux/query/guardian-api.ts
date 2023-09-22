@@ -32,7 +32,7 @@ const guardianApi = createApi({
 				url: `search?$`,
 				params: {
 					'api-key': apiKey,
-					'show-fields': 'thumbnail',
+					'show-fields': 'all',
 					'page-size': itemsPage,
 					'order-by': sort,
 					q: search,
@@ -56,7 +56,7 @@ const guardianApi = createApi({
 		details: builder.query<INewsItem, string>({
 			query: (url) => ({
 				url,
-				params: { 'api-key': apiKey, 'show-blocks': 'all' },
+				params: { 'api-key': apiKey, 'show-blocks': 'all', 'show-fields': 'all', },
 			}),
 		}),
 	}),
