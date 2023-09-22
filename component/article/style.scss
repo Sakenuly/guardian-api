@@ -54,10 +54,44 @@
 		flex: 1 1 50%;
 		flex-wrap: wrap;
 		font-size: 18px;
-		line-height: 1.5;
+		line-height: 1.9;
 		color: #333;
 		&:first-letter {
 			font-weight: 900;
 		}
 	}
+	a {
+		text-decoration: none;
+		color: #0073e6;
+		font-weight: bold;
+	}
+
+	a:hover {
+		color: #ff6600;
+		text-decoration: underline;
+	}
+	blockquote {
+		background-color: #f7f7f7;
+		border-left: 4px solid #0073e6;
+		padding: 10px;
+		margin: 10px 0;
+		p {
+			font-style: italic;
+			color: #333;
+		}
+		a {
+			text-decoration: underline;
+			color: #0073e6;
+		}
+	}
+}
+a {
+}
+
+img {
+	max-width: 80%;
+	border-radius: 10px;
+	height: auto;
+	display: block;
+	margin: 20px auto;
 }

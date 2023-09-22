@@ -32,6 +32,7 @@ export default async function Details({ params: { id } }: IDetailsProps) {
 		<div className='details'>
 			<div className='details__container'>
 				<Article
+				article={data.response.content.blocks.body}
 					key={data.response.content.id}
 					articleText={data.response.content.fields.bodyText}
 					image={data.response.content.fields.thumbnail}

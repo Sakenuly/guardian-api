@@ -3,6 +3,7 @@ import './style.scss';
 import Link from 'next/link';
 
 interface IArticleProps {
+	article: Body[];
 	articleText: string;
 	image: string;
 	headline: string;
@@ -16,6 +17,7 @@ const noImage =
 	'https://www.charlotteathleticclub.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png';
 
 function Article({
+	article,
 	articleText,
 	image,
 	headline,
@@ -34,25 +36,22 @@ function Article({
 				</a>
 			</div>
 			<div className='article__content'>
-				<p className='article__body-text'>
+				<div className='article__body-text'>
 					<img
 						className='article__image'
 						src={image ? image : noImage}
 						alt='Article Thumbnail'
 					/>
-					{articleText}
-				</p>
+					{article.map((item) => (
+						<div
+							key={item.id}
+							dangerouslySetInnerHTML={{ __html: item.bodyHtml }}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);
 }
 
 export { Article };
-
-// function Article({ articleText, image }:IArticleProps ) {
-// 	return (
-// 		<div className='article'>
-// 			<div dangerouslySetInnerHTML={{ __html: article.bodyHtml }} />
-// 		</div>
-// 	);
-// }
