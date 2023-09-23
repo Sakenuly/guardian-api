@@ -1,17 +1,5 @@
+const sortSelectArray = ['newest', 'oldest', 'relevance'];
 
-
-const sortSelectArray = [
-	{ value: 'newest' },
-	{ value: 'oldest' },
-	{ value: 'relevance' },
-];
-
-const itemsCountArray = [
-	{ value: '10' },
-	{ value: '20' },
-	{ value: '30' },
-	{ value: '40' },
-	{ value: '50' },
-];
+const itemsCountArray = ['10', '20', '30', '40', '50'];
 
 export { sortSelectArray, itemsCountArray };

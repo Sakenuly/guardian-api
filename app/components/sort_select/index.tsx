@@ -8,15 +8,10 @@ import { useAppDispatch, useAppSelector } from '@/app/GlobalRedux/hooks/hooks';
 import { addSortValue } from '@/app/GlobalRedux/features/sort/sort';
 import { setAutoScroll } from '@/app/GlobalRedux/features/auto_scroll/auto-scroll';
 
-interface IDataArrayItem {
-	name: string;
-	value: string;
-}
-
 interface ISortSelectProps {
 	type: 'sort' | 'itemsPage';
 	label: string;
-	dataArray: IDataArrayItem[];
+	dataArray: string[];
 }
 
 function SortSelect({ type, label, dataArray }: ISortSelectProps) {
@@ -39,8 +34,8 @@ function SortSelect({ type, label, dataArray }: ISortSelectProps) {
 					inputProps={{ 'aria-label': 'Without label' }}
 				>
 					{dataArray.map((item) => (
-						<MenuItem key={item.value} value={item.value}>
-							{item.value}
+						<MenuItem key={item} value={item}>
+							{item}
 						</MenuItem>
 					))}
 				</Select>
