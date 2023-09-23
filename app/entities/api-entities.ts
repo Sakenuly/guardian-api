@@ -46,7 +46,7 @@ export interface IFields {
 	shortUrl: string;
 	shouldHideAdverts: string;
 	showInRelatedContent: string;
-	thumbnail: string;
+	thumbnail?: string;
 	legallySensitive: string;
 	lang: string;
 	isLive: string;

@@ -1,6 +1,5 @@
 import { IBody } from '@/app/entities/api-entities';
 import './style.scss';
-import { noImage } from '@/app/constants/global';
 
 interface IArticleProps {
 	article: IBody[];
@@ -20,8 +19,6 @@ function Article({
 	publication,
 	guardianLink,
 }: IArticleProps) {
-	const mainImage = image ?? noImage;
-
 	return (
 		<div className='article'>
 			<p className='article__headline'>{headline}</p>
@@ -35,11 +32,7 @@ function Article({
 			</div>
 			<div className='article__content'>
 				<div className='article__body-text'>
-					<img
-						className='article__image'
-						src={mainImage}
-						alt='Article Thumbnail'
-					/>
+					<img className='article__image' src={image} alt='Article Thumbnail' />
 					{article.map((item) => (
 						<div
 							key={item.id}

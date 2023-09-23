@@ -2,6 +2,7 @@ import { Article } from '@/app/components/article';
 import { getDate, getTime } from '@/app/helpers/date';
 import { INewsItem } from '@/app/entities/api-entities';
 import './style.scss';
+import { noImage } from '@/app/constants/global';
 
 interface IDetailsProps {
 	params: {
@@ -24,6 +25,7 @@ async function getData(url: string): Promise<INewsItem> {
 export default async function Details({ params: { id } }: IDetailsProps) {
 	const data = await getData(id.join('/'));
 	const date = data.response.content.webPublicationDate;
+	const mainImage = data.response.content.fields.thumbnail ?? noImage;
 	const publication = { date: getDate(date), time: getTime(date) };
 
 	return (
@@ -32,7 +34,7 @@ export default async function Details({ params: { id } }: IDetailsProps) {
 				<Article
 					article={data.response.content.blocks.body}
 					key={data.response.content.id}
-					image={data.response.content.fields.thumbnail}
+					image={mainImage}
 					headline={data.response.content.fields.headline}
 					publication={publication}
 					guardianLink={data.response.content.webUrl}
