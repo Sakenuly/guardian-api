@@ -6,8 +6,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { IResult } from '@/app/entities/api-entities';
-import * as cheerio from 'cheerio';
-import { log } from 'console';
 import Link from 'next/link';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { getDate, getTime } from '@/app/helpers/date';

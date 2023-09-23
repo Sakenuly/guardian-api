@@ -1,4 +1,5 @@
 'use client';
+
 import { NewsGrid } from '@/app/components/news_grid';
 import { SortMain } from '@/app/components/sort_main';
 

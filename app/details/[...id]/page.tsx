@@ -1,7 +1,6 @@
 import { Article } from '@/app/components/article';
 import { getDate, getTime } from '@/app/helpers/date';
 import { INewsItem } from '@/app/entities/api-entities';
-import Link from 'next/link';
 import './style.scss';
 
 interface IDetailsProps {
@@ -14,7 +13,7 @@ async function getData(url: string): Promise<INewsItem> {
 	const baseUrl = 'https://content.guardianapis.com/';
 	const apiKey = 'decaa581-37d8-4e56-8454-27c206172250';
 	const response = await fetch(
-		baseUrl + url + `?api-key=${apiKey}&show-blocks=all&show-fields=all`
+		`${baseUrl + url}?api-key=${apiKey}&show-blocks=all&show-fields=all`
 	);
 	if (!response.ok) {
 		throw new Error(`Request failed with status: ${response.status}`);
@@ -33,7 +32,6 @@ export default async function Details({ params: { id } }: IDetailsProps) {
 				<Article
 					article={data.response.content.blocks.body}
 					key={data.response.content.id}
-					articleText={data.response.content.fields.bodyText}
 					image={data.response.content.fields.thumbnail}
 					headline={data.response.content.fields.headline}
 					publication={publication}

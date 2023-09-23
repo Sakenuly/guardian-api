@@ -141,7 +141,7 @@ export enum MIMEType {
 	ImageJPEG = 'image/jpeg',
 }
 
-export enum Type {
+export enum ItemType {
 	Image = 'image',
 	Pullquote = 'pullquote',
 	Text = 'text',
@@ -197,7 +197,7 @@ export interface IMain {
 }
 
 export interface MainElement {
-	type: Type;
+	type: ItemType;
 	assets: IAsset[];
 	imageTypeData: ImageTypeData;
 }

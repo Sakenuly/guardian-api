@@ -1,11 +1,9 @@
 import { IBody } from '@/app/entities/api-entities';
 import './style.scss';
-import Link from 'next/link';
 import { noImage } from '@/app/constants/global';
 
 interface IArticleProps {
 	article: IBody[];
-	articleText: string;
 	image: string;
 	headline: string;
 	publication: {
@@ -17,7 +15,6 @@ interface IArticleProps {
 
 function Article({
 	article,
-	articleText,
 	image,
 	headline,
 	publication,

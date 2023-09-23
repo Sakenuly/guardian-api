@@ -1,15 +1,13 @@
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import './style.scss';
 import { v4 as uuidv4 } from 'uuid';
-import { useState, useEffect } from 'react';
-import { NewsGridItem } from '../news_grid_item';
+import { useEffect } from 'react';
 import { useSearchQuery } from '@/app/GlobalRedux/query/guardian-api';
 import { useAppDispatch, useAppSelector } from '@/app/GlobalRedux/hooks/hooks';
 import {
 	setAutoScroll,
 	setPage,
 } from '@/app/GlobalRedux/features/auto_scroll/auto-scroll';
+import { NewsGridItem } from '../news_grid_item';
 
 function NewsGrid() {
 	const sortSelector = useAppSelector((state) => state.sortSlice);

@@ -8,9 +8,7 @@ const searchSlice = createSlice({
 	name: 'searchSlice',
 	initialState,
 	reducers: {
-		addSearchValue: (state, { payload }) => {
-			return payload;
-		},
+		addSearchValue: (state, { payload }) => payload,
 	},
 });
 
