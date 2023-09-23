@@ -1,8 +1,6 @@
 'use client';
-import { NewsGrid } from '@/component/news_grid';
-import { SortMain } from '@/component/sort_main';
-
- 
+import { NewsGrid } from '@/app/components/news_grid';
+import { SortMain } from '@/app/components/sort_main';
 
 export default function Home() {
 	return (

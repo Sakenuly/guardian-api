@@ -5,7 +5,11 @@ import {
 	fetchBaseQuery,
 	setupListeners,
 } from '@reduxjs/toolkit/query/react';
-import { IApiData, INewsItem, INewsResponse } from '@/types/api-types';
+import {
+	IApiData,
+	INewsItem,
+	INewsResponse,
+} from '@/app/entities/api-entities';
 import { useAppSelector } from '../hooks/hooks';
 import { url } from 'inspector';
 
@@ -56,7 +60,11 @@ const guardianApi = createApi({
 		details: builder.query<INewsItem, string>({
 			query: (url) => ({
 				url,
-				params: { 'api-key': apiKey, 'show-blocks': 'all', 'show-fields': 'all', },
+				params: {
+					'api-key': apiKey,
+					'show-blocks': 'all',
+					'show-fields': 'all',
+				},
 			}),
 		}),
 	}),

@@ -1,8 +1,8 @@
-import { Header } from '@/component/header';
+import { Header } from '@/app/components/header';
 import './globals.scss';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { Footer } from '@/component/footer';
+import { Footer } from '@/app/components/footer';
 import { MainProvider } from './GlobalRedux/provider';
 
 const inter = Inter({ subsets: ['latin'] });

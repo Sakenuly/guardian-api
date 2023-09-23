@@ -1,9 +1,10 @@
-import { Body } from '@/types/api-types';
+import { IBody } from '@/app/entities/api-entities';
 import './style.scss';
 import Link from 'next/link';
+import { noImage } from '@/app/constants/global';
 
 interface IArticleProps {
-	article: Body[];
+	article: IBody[];
 	articleText: string;
 	image: string;
 	headline: string;
@@ -13,8 +14,6 @@ interface IArticleProps {
 	};
 	guardianLink: string;
 }
-const noImage =
-	'https://www.charlotteathleticclub.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png';
 
 function Article({
 	article,
@@ -24,6 +23,8 @@ function Article({
 	publication,
 	guardianLink,
 }: IArticleProps) {
+	const mainImage = image ? image : noImage;
+
 	return (
 		<div className='article'>
 			<p className='article__headline'>{headline}</p>
@@ -39,7 +40,7 @@ function Article({
 				<div className='article__body-text'>
 					<img
 						className='article__image'
-						src={image ? image : noImage}
+						src={mainImage}
 						alt='Article Thumbnail'
 					/>
 					{article.map((item) => (

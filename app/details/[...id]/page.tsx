@@ -1,6 +1,6 @@
-import { Article } from '@/component/article';
-import { getDate, getTime } from '@/functions/date';
-import { INewsItem } from '@/types/api-types';
+import { Article } from '@/app/components/article';
+import { getDate, getTime } from '@/app/helpers/date';
+import { INewsItem } from '@/app/entities/api-entities';
 import Link from 'next/link';
 import './style.scss';
 
@@ -26,13 +26,12 @@ export default async function Details({ params: { id } }: IDetailsProps) {
 	const data = await getData(id.join('/'));
 	const date = data.response.content.webPublicationDate;
 	const publication = { date: getDate(date), time: getTime(date) };
-	
 
 	return (
 		<div className='details'>
 			<div className='details__container'>
 				<Article
-				article={data.response.content.blocks.body}
+					article={data.response.content.blocks.body}
 					key={data.response.content.id}
 					articleText={data.response.content.fields.bodyText}
 					image={data.response.content.fields.thumbnail}
