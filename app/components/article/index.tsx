@@ -23,7 +23,7 @@ function Article({
 	publication,
 	guardianLink,
 }: IArticleProps) {
-	const mainImage = image ? image : noImage;
+	const mainImage = image ?? noImage;
 
 	return (
 		<div className='article'>

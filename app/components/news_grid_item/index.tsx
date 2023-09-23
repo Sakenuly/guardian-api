@@ -21,9 +21,7 @@ interface INewsGridItemProps {
 function NewsGridItem({ arrayItem }: INewsGridItemProps) {
 	const publicationDate = getDate(arrayItem.webPublicationDate);
 	const publicationTime = getTime(arrayItem.webPublicationDate);
-	const coverImage = arrayItem.fields.thumbnail
-		? arrayItem.fields.thumbnail
-		: noImage;
+	const coverImage = arrayItem.fields.thumbnail ?? noImage;
 	return (
 		<Card
 			className='news-grid-item'
