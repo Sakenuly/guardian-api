@@ -40,7 +40,7 @@ function SortSelect({ type, label, dataArray }: ISortSelectProps) {
 				>
 					{dataArray.map((item) => (
 						<MenuItem key={item.value} value={item.value}>
-							{item.name}
+							{item.value}
 						</MenuItem>
 					))}
 				</Select>
