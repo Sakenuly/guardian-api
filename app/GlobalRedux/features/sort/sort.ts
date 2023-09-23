@@ -11,9 +11,7 @@ const sortSlice = createSlice({
 	name: 'sortSlice',
 	initialState,
 	reducers: {
-		addSortValue: (state, { payload: { key, value } }) => {
-			return { ...state, [key]: value };
-		},
+		addSortValue: (state, { payload: { key, value } }) => ({ ...state, [key]: value }),
 	},
 });
 

@@ -1,13 +1,7 @@
 'use client';
 
-import {
-	createApi,
-	fetchBaseQuery,
-	setupListeners,
-} from '@reduxjs/toolkit/query/react';
-import { IApiData, INewsItem, INewsResponse } from '@/types/api-types';
-import { useAppSelector } from '../hooks/hooks';
-import { url } from 'inspector';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { IApiData, INewsItem } from '@/app/entities/api-entities';
 
 const apiKey = 'decaa581-37d8-4e56-8454-27c206172250';
 
@@ -39,9 +33,7 @@ const guardianApi = createApi({
 					page,
 				},
 			}),
-			serializeQueryArgs: ({ endpointName }) => {
-				return endpointName;
-			},
+			serializeQueryArgs: ({ endpointName }) => endpointName,
 			merge: (currentCache, newItems, data) => {
 				if (data.arg.autoScroll) {
 					currentCache.response.results.push(...newItems.response.results);
@@ -56,7 +48,11 @@ const guardianApi = createApi({
 		details: builder.query<INewsItem, string>({
 			query: (url) => ({
 				url,
-				params: { 'api-key': apiKey, 'show-blocks': 'all', 'show-fields': 'all', },
+				params: {
+					'api-key': apiKey,
+					'show-blocks': 'all',
+					'show-fields': 'all',
+				},
 			}),
 		}),
 	}),

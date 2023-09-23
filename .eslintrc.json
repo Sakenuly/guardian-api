@@ -1,4 +1,18 @@
 {
-  "extends": "next/core-web-vitals",
-  "ignorePatterns":"next.config.js"
+	"extends": [
+		"next/core-web-vitals",
+		"airbnb",
+		"airbnb-typescript",
+		"prettier"
+	],
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"import/prefer-default-export": "off",
+		"consistent-return": "off",
+		"react/jsx-no-bind": "off"
+	},
+	"ignorePatterns": "next.config.js"
 }

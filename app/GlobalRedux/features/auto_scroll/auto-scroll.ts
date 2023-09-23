@@ -11,13 +11,11 @@ const autoScrollSlice = createSlice({
 		setAutoScroll: (state, { payload }) => {
 			if (payload) {
 				return { ...state, isActive: payload };
-			} else {
+			} 
 				return initialState;
-			}
+			
 		},
-		setPage: (state, { payload }) => {
-			return { ...state, page: payload };
-		},
+		setPage: (state, { payload }) => ({ ...state, page: payload }),
 	},
 });
 

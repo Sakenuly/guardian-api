@@ -46,7 +46,7 @@ export interface IFields {
 	shortUrl: string;
 	shouldHideAdverts: string;
 	showInRelatedContent: string;
-	thumbnail: string;
+	thumbnail?: string;
 	legallySensitive: string;
 	lang: string;
 	isLive: string;
@@ -76,17 +76,17 @@ export enum Type {
 }
 
 export interface INewsItem {
-	response: Response;
+	response: IResponse;
 }
 
-export interface Response {
+export interface IResponse {
 	status: string;
 	userTier: string;
 	total: number;
-	content: Content;
+	content: IContent;
 }
 
-export interface Content {
+export interface IContent {
 	id: string;
 	type: string;
 	sectionId: string;
@@ -95,20 +95,20 @@ export interface Content {
 	webTitle: string;
 	webUrl: string;
 	apiUrl: string;
-	blocks: Blocks;
+	blocks: IBlocks;
 	isHosted: boolean;
 	pillarId: string;
 	pillarName: string;
 	fields: IFields;
 }
 
-export interface Blocks {
-	main: Main;
-	body: Body[];
+export interface IBlocks {
+	main: IMain;
+	body: IBody[];
 	totalBodyBlocks: number;
 }
 
-export interface Body {
+export interface IBody {
 	id: string;
 	bodyHtml: string;
 	bodyTextSummary: string;
@@ -124,13 +124,13 @@ export interface Attributes {}
 
 export interface BodyElement {
 	type: Type;
-	assets: Asset[];
+	assets: IAsset[];
 	textTypeData?: TextTypeData;
 	imageTypeData?: ImageTypeData;
-	pullquoteTypeData?: PullquoteTypeData;
+	pullquoteTypeData?: IPullquoteTypeData;
 }
 
-export interface Asset {
+export interface IAsset {
 	type: Type;
 	mimeType: MIMEType;
 	file: string;
@@ -141,7 +141,7 @@ export enum MIMEType {
 	ImageJPEG = 'image/jpeg',
 }
 
-export enum Type {
+export enum ItemType {
 	Image = 'image',
 	Pullquote = 'pullquote',
 	Text = 'text',
@@ -174,7 +174,7 @@ export interface ImageTypeData {
 	caption?: string;
 }
 
-export interface PullquoteTypeData {
+export interface IPullquoteTypeData {
 	html: string;
 	attribution: string;
 	role: string;
@@ -184,7 +184,7 @@ export interface TextTypeData {
 	html: string;
 }
 
-export interface Main {
+export interface IMain {
 	id: string;
 	bodyHtml: string;
 	bodyTextSummary: string;
@@ -197,7 +197,7 @@ export interface Main {
 }
 
 export interface MainElement {
-	type: Type;
-	assets: Asset[];
+	type: ItemType;
+	assets: IAsset[];
 	imageTypeData: ImageTypeData;
 }

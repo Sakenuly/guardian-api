@@ -1,4 +1,5 @@
 'use client';
+
 import { combineReducers } from '@reduxjs/toolkit';
 import { guardianApi } from './query/guardian-api';
 import { searchSlice } from './features/search/search';

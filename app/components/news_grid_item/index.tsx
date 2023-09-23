@@ -5,24 +5,21 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { IResult } from '@/types/api-types';
-import * as cheerio from 'cheerio';
-import { log } from 'console';
+import { IResult } from '@/app/entities/api-entities';
 import Link from 'next/link';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { getDate, getTime } from '@/functions/date';
+import { getDate, getTime } from '@/app/helpers/date';
 import './style.scss';
+import { noImage } from '@/app/constants/global';
 
 interface INewsGridItemProps {
 	arrayItem: IResult;
 }
 
-const noImage =
-	'https://www.charlotteathleticclub.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png';
-
 function NewsGridItem({ arrayItem }: INewsGridItemProps) {
 	const publicationDate = getDate(arrayItem.webPublicationDate);
 	const publicationTime = getTime(arrayItem.webPublicationDate);
+	const coverImage = arrayItem.fields.thumbnail ?? noImage;
 	return (
 		<Card
 			className='news-grid-item'
@@ -35,7 +32,7 @@ function NewsGridItem({ arrayItem }: INewsGridItemProps) {
 		>
 			<CardMedia
 				sx={{ height: 140 }}
-				image={arrayItem.fields.thumbnail ? arrayItem.fields.thumbnail : noImage}
+				image={coverImage}
 				title='green iguana'
 				className='news-grid-item__image'
 			/>

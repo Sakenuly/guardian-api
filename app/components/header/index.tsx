@@ -2,9 +2,9 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Link from 'next/link';
 import { MainSearch } from '../search';
 import './style.scss';
-import Link from 'next/link';
 
 function Header() {
 	return (
@@ -21,7 +21,7 @@ function Header() {
 							component='div'
 							sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
 						>
-							<Link className='link' href={'/'}>
+							<Link className='link' href='/'>
 								{' '}
 								Guardian Api
 							</Link>

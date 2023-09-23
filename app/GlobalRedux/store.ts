@@ -1,7 +1,7 @@
 'use client';
 
-import { combinedReducer } from './combine-reducer';
 import { configureStore } from '@reduxjs/toolkit';
+import { combinedReducer } from './combine-reducer';
 import { guardianApi } from './query/guardian-api';
 
 export const store = configureStore({
