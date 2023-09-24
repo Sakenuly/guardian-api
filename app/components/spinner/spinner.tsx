@@ -1,13 +1,13 @@
 import React from 'react';
-
 import { Puff } from 'react-loader-spinner';
+import './style.scss'
 
 function SpinnerLoading() {
 	return (
-		<div>
+		<div className='spinner-container'>
 			<Puff
-				height='80'
-				width='80'
+				height={80}
+				width={80}
 				radius={1}
 				color='#4fa94d'
 				ariaLabel='puff-loading'
