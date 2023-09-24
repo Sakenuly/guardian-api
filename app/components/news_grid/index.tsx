@@ -8,6 +8,7 @@ import {
 	setPage,
 } from '@/app/GlobalRedux/features/auto_scroll/auto-scroll';
 import { NewsGridItem } from '../news_grid_item';
+import { SpinnerLoading } from '../spinner/spinner';
 
 function NewsGrid() {
 	const sortSelector = useAppSelector((state) => state.sortSlice);
@@ -16,7 +17,7 @@ function NewsGrid() {
 	const autoScrollPage = useAppSelector((state) => state.autoScrollSlice.page);
 	const dispatch = useAppDispatch();
 
-	const { data } = useSearchQuery({
+	const { data, isLoading } = useSearchQuery({
 		sortArgs: sortSelector,
 		search: searchSelector,
 		page: autoScrollPage.toString(),
@@ -42,6 +43,7 @@ function NewsGrid() {
 
 	return (
 		<div className='news-grid'>
+			{isLoading && <SpinnerLoading />}
 			{data &&
 				data.response.results.map((item) => (
 					<div className='news-grid__item' key={uuidv4()}>
