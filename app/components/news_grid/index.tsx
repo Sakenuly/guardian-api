@@ -17,7 +17,7 @@ function NewsGrid() {
 	const autoScrollPage = useAppSelector((state) => state.autoScrollSlice.page);
 	const dispatch = useAppDispatch();
 
-	const { data, isLoading, isFetching } = useSearchQuery({
+	const { data, isFetching } = useSearchQuery({
 		sortArgs: sortSelector,
 		search: searchSelector,
 		page: autoScrollPage.toString(),
