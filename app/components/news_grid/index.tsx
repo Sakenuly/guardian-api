@@ -17,7 +17,7 @@ function NewsGrid() {
 	const autoScrollPage = useAppSelector((state) => state.autoScrollSlice.page);
 	const dispatch = useAppDispatch();
 
-	const { data, isLoading } = useSearchQuery({
+	const { data, isLoading, isFetching } = useSearchQuery({
 		sortArgs: sortSelector,
 		search: searchSelector,
 		page: autoScrollPage.toString(),
@@ -43,7 +43,7 @@ function NewsGrid() {
 
 	return (
 		<div className='news-grid'>
-			{isLoading && <SpinnerLoading />}
+			{isFetching && !autoScrollSelector.isActive && <SpinnerLoading />}
 			{data &&
 				data.response.results.map((item) => (
 					<div className='news-grid__item' key={uuidv4()}>
