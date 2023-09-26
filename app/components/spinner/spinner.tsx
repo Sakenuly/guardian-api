@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Puff } from 'react-loader-spinner';
 import './style.scss';
 
 function SpinnerLoading() {
+	useEffect(() => {
+		document.body.style.overflow = 'hidden';
+
+		return () => {
+			document.body.style.overflow = 'auto';
+		};
+	}, []);
 	return (
 		<div className='spinner-container'>
 			<div className='spinner'>
