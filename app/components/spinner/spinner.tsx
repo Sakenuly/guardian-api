@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect } from 'react';
 import { Puff } from 'react-loader-spinner';
 import './style.scss';
