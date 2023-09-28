@@ -11,6 +11,8 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { getDate, getTime } from '@/app/helpers/date';
 import './style.scss';
 import { noImage } from '@/app/constants/global';
+import { useAppDispatch } from '@/app/GlobalRedux/hooks/hooks';
+import { spinnerIsActive } from '@/app/GlobalRedux/features/spinner/spinner';
 
 interface INewsGridItemProps {
 	arrayItem: IResult;
@@ -20,6 +22,12 @@ function NewsGridItem({ arrayItem }: INewsGridItemProps) {
 	const publicationDate = getDate(arrayItem.webPublicationDate);
 	const publicationTime = getTime(arrayItem.webPublicationDate);
 	const coverImage = arrayItem.fields.thumbnail ?? noImage;
+	const dispatch = useAppDispatch();
+
+	function cardButtonClickHandler() {
+		dispatch(spinnerIsActive(true));
+	}
+
 	return (
 		<Card
 			className='news-grid-item'
@@ -51,7 +59,11 @@ function NewsGridItem({ arrayItem }: INewsGridItemProps) {
 			</CardContent>
 			<CardActions sx={{ display: 'flex', justifyContent: 'flex-end' }}>
 				<Link href={`details/${arrayItem.id}`}>
-					<Button sx={{ color: 'black' }} size='small'>
+					<Button
+						onClick={cardButtonClickHandler}
+						sx={{ color: 'black' }}
+						size='small'
+					>
 						Details <ArrowForwardIcon />
 					</Button>
 				</Link>
